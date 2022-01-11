@@ -1,11 +1,11 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-10 22:25:44
+ * @LastEditTime: 2022-01-11 21:29:49
  * @LastEditors: your name
  * @Description: 图标组件
 -->
 <template>
-  <i class="iconfont icon-info" :class="fontClass"></i>
+  <i class="iconfont icon-container" :class="fontClass"></i>
 </template>
 
 <script>
