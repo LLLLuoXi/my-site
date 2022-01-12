@@ -1,24 +1,22 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-11 23:52:31
+ * @LastEditTime: 2022-01-12 23:34:51
  * @LastEditors: your name
  * @Description: 分页组件
 -->
 <template>
   <div class="pager-container" v-if="pageNumber > 1">
-    <h1>{{ visibelMin }}</h1>
-    <h1>{{ visibelMax }}</h1>
-    <a href="" :class="{ disabled: current === 1 }">|&lt;&lt;</a>
-    <a href="" :class="{ disabled: current === 1 }">&lt;&lt;</a>
-    <a
-      href=""
-      v-for="(n, i) in numbers"
-      :key="i"
-      :class="{ active: n === current }"
-      >{{ n }}</a
+    <a @click="handleClick(1)" :class="{ disabled: current === 1 }"
+      >|&lt;&lt;</a
     >
-    <a href="" :class="{ disabled: current === pageNumber }">&gt;&gt;</a>
-    <a href="" :class="{ disabled: current === pageNumber }">&gt;&gt;|</a>
+    <a @click="handleClick(current - 1)" :class="{ disabled: current === 1 }"
+      >&lt;&lt;</a
+    >
+    <a @click="handleClick(n)" v-for="(n, i) in numbers" :key="i" :class="{ active: n === current }">{{
+      n
+    }}</a>
+    <a @click="handleClick(current + 1)" :class="{ disabled: current === pageNumber }">&gt;&gt;</a>
+    <a @click="handleClick(pageNumber)" :class="{ disabled: current === pageNumber }">&gt;&gt;|</a>
   </div>
 </template>
 
@@ -48,23 +46,42 @@ export default {
       return Math.ceil(this.total / this.limit);
     },
     // 得到显示的最小数字
-    visibelMin(){
+    visibelMin() {
       let min = this.current - Math.floor(this.visibleNumber / 2);
       if (min < 1) {
         min = 1;
       }
-      return min
+      return min;
     },
     // 得到显示的最大数字
-    visibelMax(){
-      let max = this.visibelMin + this.visibleNumber - 1 ;
+    visibelMax() {
+      let max = this.visibelMin + this.visibleNumber - 1;
       if (max > this.pageNumber) {
         max = this.pageNumber;
       }
-      return max
+      return max;
     },
     numbers() {
-      return [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      let nums = [];
+      for (let i = this.visibelMin; i <= this.visibelMax; i++) {
+        nums.push(i);
+      }
+      return nums;
+    },
+  },
+  methods: {
+    handleClick(newPage) {
+      if(newPage<1){
+        newPage = 1;
+      }
+      if(newPage >this.pageNumber){
+        newPage = this.pageNumber
+      }
+      if(newPage === this.current){
+        return
+      }
+      //抛出一个事件
+      this.$emit("pageChange", newPage);
     },
   },
 };
@@ -79,6 +96,7 @@ export default {
   a {
     color: @primary;
     margin: 0 6px;
+    cursor: pointer;
     &.disabled {
       color: @lightWords;
       cursor: not-allowed;
