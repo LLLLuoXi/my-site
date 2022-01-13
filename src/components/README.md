@@ -1,12 +1,12 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-13 23:07:39
+ * @LastEditTime: 2022-01-13 23:14:10
  * @LastEditors: your name
  * @Description: 组件文档说明
 -->
 # Avatar
 
-
+![image](https://github.com/LLLLuoXi/my-site/raw/6d23c6060620c60e40b7f3943e0392bd2b287213/md-imgs/cpn-avatar.jpg)
 
 ## 属性
 
