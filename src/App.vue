@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-12 23:32:54
+ * @LastEditTime: 2022-01-13 22:34:31
  * @LastEditors: your name
  * @Description: app.vue
 -->
@@ -9,7 +9,6 @@
     app
     <Avatar :url="imgUrl" :size="100"/>
     <Icon type="close"/>
-    <!-- <Pager :current="current" :total="total" @pageChange="handlePageChange" /> -->
   </div>
 </template>
 
@@ -18,7 +17,7 @@
 export default {
   name: "App", //如果组件没有初始化名字，则会使用这个名字
   components: {
-    Pager,
+    // Pager,
   },
   data() {
     return {
