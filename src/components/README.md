@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-13 23:14:10
+ * @LastEditTime: 2022-01-13 23:48:40
  * @LastEditors: your name
  * @Description: 组件文档说明
 -->
@@ -16,6 +16,7 @@
 | size   | 头像尺寸，宽高相等 | Number | 否   | 150    |
 
 # Icon
+![image](https://github.com/LLLLuoXi/my-site/raw/main/md-imgs/cpn-icon.jpg)
 
 
 图标组件
@@ -29,10 +30,10 @@
 | type   | 图标类型 | String | 是   | 无     |
 
 有效的图标类型：
-
+![image](https://github.com/LLLLuoXi/my-site/raw/main/md-imgs/cpn-icon-type.jpg)
 
 # pager
-
+![image](https://github.com/LLLLuoXi/my-site/raw/main/md-imgs/cpn-pager.jpg)
 
 ## 属性
 
@@ -50,4 +51,15 @@
 | pageChange | 页码变化 | 新的页码 | Number   |
 
 
+# Empty
+
+![image](https://github.com/LLLLuoXi/my-site/raw/main/md-imgs/cpn-empty.jpg)
+
+该组件需要在外层容器中横向垂直居中
+
+## 属性
+
+| 属性名 | 含义       | 类型   | 必填 | 默认值   |
+| ------ | ---------- | ------ | ---- | -------- |
+| text   | 显示的文字 | String | 否   | "无数据" |
 
