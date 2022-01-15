@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-11 21:29:49
+ * @LastEditTime: 2022-01-15 22:30:22
  * @LastEditors: your name
  * @Description: 图标组件
 -->
@@ -45,4 +45,8 @@ export default {
 
 <style scope>
 @import "//at.alicdn.com/t/font_3131059_h97gaaxq9z8.css";
+.iconfont{
+  color:inherit;
+  font-size:inherit;
+}
 </style>
