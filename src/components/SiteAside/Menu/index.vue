@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-16 00:37:08
+ * @LastEditTime: 2022-01-16 21:39:38
  * @LastEditors: your name
  * @Description: Menu
 -->
@@ -89,7 +89,7 @@ export default {
       color: #fff;
     }
     &.selcted {
-      background-color: darken(@words, 8%);
+      background-color: darken(@words, 3%);
     }
   }
 }

@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-15 23:02:58
+ * @LastEditTime: 2022-01-16 21:47:59
  * @LastEditors: your name
  * @Description: Contect组件
 -->
@@ -70,7 +70,7 @@ export default {
   padding:20px;
   margin:0;
   color: @gray;
-  @itemHeight:30px;
+  @itemHeight:40px;
   li{
     height:@itemHeight;
     line-height: 30px;
@@ -86,6 +86,7 @@ export default {
     display:flex;
     align-items: center;
     cursor: pointer;
+    font-size: 14px;
     span{
       margin-left: 10px;
     }

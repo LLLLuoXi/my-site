@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-11 21:29:09
+ * @LastEditTime: 2022-01-16 21:36:58
  * @LastEditors: your name
  * @Description: 头像组件
 -->
@@ -17,6 +17,7 @@ export default {
     },
     size: {
       type: Number,
+      default:150
     },
   },
   data(){

@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-16 21:07:10
+ * @LastEditTime: 2022-01-16 23:23:12
  * @LastEditors: your name
  * @Description: 组件文档说明
 -->
@@ -137,9 +137,40 @@
 > 选中条件：路径等于`/message`
 
 # SiteAside
-
-
+![cpn-siteAside.jpg](https://s2.loli.net/2022/01/16/csMLUzu2iIk3E8m.png)
 
 网站侧边栏
 
 宽度和高度撑满外层容器
+
+# Layout
+
+使用示例：
+
+```html
+<Layout>
+      <div class="main">
+        主区域，宽度占满剩余空间，溢出隐藏主区域，宽度占满剩余空间，溢出隐藏主区域宽度占满剩余空间，溢出隐藏主区域
+      </div>
+      <template #left>
+        <div class="left">
+          左边栏区域，宽度适应内容，溢出隐藏
+        </div>
+      </template>
+      <template #right>
+        <div class="right">
+          右边栏区域，宽度适应内容，溢出隐藏
+        </div>
+      </template>
+    </Layout>
+```
+
+![cpn-layout.jpg](https://s2.loli.net/2022/01/16/rfK4FOQVHpjE6kA.png)
+
+## 插槽
+
+| 插槽名  | 含义       |
+| ------- | ---------- |
+| default | 中间主区域 |
+| left    | 左边栏     |
+| right   | 右边栏     |
