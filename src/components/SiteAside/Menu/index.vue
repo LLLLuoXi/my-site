@@ -1,22 +1,24 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-16 21:39:38
+ * @LastEditTime: 2022-01-17 22:35:12
  * @LastEditors: your name
  * @Description: Menu
 -->
 <template>
   <nav class="menu-container">
-    <a
+    <RouterLink
+      :exact="item.exact"
       v-for="item in items"
       :key="item.link"
-      :href="item.link"
-      :class="{ selcted: isSelected(item) }"
+      :to="{ name: item.name }"
+      active-class="selected"
+      exact-active-class=""
     >
       <div class="icon">
         <Icon :type="item.icon" />
       </div>
       <span>{{ item.title }}</span>
-    </a>
+    </RouterLink>
   </nav>
 </template>
 
@@ -29,45 +31,39 @@ export default {
     return {
       items: [
         {
-          link: "/",
+          name: "Home",
           title: "首页",
           icon: "home",
+          exact: true,
         },
         {
-          link: "/blog",
+          name: "Blog",
           title: "文章",
           icon: "blog",
-          startWith: true, // 只要当前路径已link 开头，当前菜单选中
+          exact: false, // 是否精确匹配
         },
         {
-          link: "/about",
+          name: "About",
           title: "关于我",
           icon: "about",
+          exact: true,
         },
         {
-          link: "/project",
+          name: "Project",
           title: "项目&效果",
           icon: "code",
+          exact: true,
         },
         {
-          link: "/message",
+          name: "Message",
           title: "留言板",
           icon: "chat",
+          exact: true,
         },
       ],
     };
   },
-  methods: {
-    isSelected(item) {
-      let link = item.link.toLowerCase();
-      let curPathname = location.pathname.toLowerCase();
-      if (item.startWith) {
-        return curPathname.startsWith(link);
-      } else {
-        return curPathname === link;
-      }
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -88,7 +84,7 @@ export default {
     &:hover {
       color: #fff;
     }
-    &.selcted {
+    &.selected {
       background-color: darken(@words, 3%);
     }
   }
