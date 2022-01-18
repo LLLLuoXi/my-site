@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-15 22:30:22
+ * @LastEditTime: 2022-01-18 23:35:21
  * @LastEditors: your name
  * @Description: 图标组件
 -->
@@ -15,7 +15,7 @@ const classMap = {
   error: "icon-cuowu",
   close: "icon-guanbi",
   warn: "icon-jinggao",
-  info: "icon-jinggao",
+  info: "icon-info",
   blog: "icon-blog",
   code: "icon-code",
   about: "icon-set_about_hov",
