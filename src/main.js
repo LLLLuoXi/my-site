@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-18 23:23:21
+ * @LastEditTime: 2022-01-19 22:14:21
  * @LastEditors: your name
  * @Description: mian
  */
@@ -9,10 +9,7 @@ import App from './App.vue'
 import './styles/global.less'
 import router from './router'
 import showMessage from './utils/showMessage'
-
-window.showMessage = showMessage
-showMessage("ssasasaasas")
-
+Vue.prototype.$showMessage = showMessage
 new Vue({
   render: h => h(App),
   router

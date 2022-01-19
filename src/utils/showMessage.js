@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-18 23:45:03
+ * @LastEditTime: 2022-01-19 22:17:05
  * @LastEditors: your name
  * @Description: 消息弹窗
  */
@@ -14,14 +14,18 @@ import styles from "./showMessage.module.less"
  * @param {*HTMLElement} container 容器，消息会显示到该容器的正中，如果不传则在页面中间
  * @param {*Number} duration 多久消失，0为不消失
  */
-export default function (content, type = "info", container, duration = 2000) {
+//content, type = "info", container, duration = 2000
+export default function (options) {
+    const content = options.content || "";
+    const type = options.type || "info";
+    const container = options.container || document.body;
+    const duration = options.duration || 2000;
     //创建消息元素
     const div = document.createElement("div");
     const iconDom = getComponentRootDom(Icon, {
-            type,
+        type,
     })
     console.log(iconDom)
-    console.log(iconDom.outerHTML)
     console.log(styles)
     div.innerHTML = `<span class="${styles.icon}">${iconDom.outerHTML}</span><div>${content}</div>`
 
@@ -29,16 +33,29 @@ export default function (content, type = "info", container, duration = 2000) {
     const typeClassName = styles[`message-${type}`]
     div.className = `${styles.message} ${typeClassName}`
 
-    //将div加到容器里 
-    if(!container){
-        container = document.body;
-    }else{
-        // 容器的position是否改动过
-        if(getComputedStyle(container).position === "static"){
-            container.styles.position ="relative"
-        }
-    }
+    
 
+    // 容器的position是否改动过
+    if (getComputedStyle(container).position === "static") {
+        container.style.position = "relative"
+    }
+    //将div加到容器里 
     container.appendChild(div)
+    // 浏览器强行渲染
+    div.clientHeight; //导致reflow
+    //回归到正常位置  运行到这里的时候 div还未渲染出来 必须先渲染div出来 
+    div.style.opacity = 1;
+    div.style.transform = `translate(-50%, -50%)`;
+
+    //等一段时间消失
+    setTimeout(() => {
+        div.style.opacity = 0;
+        div.style.transform = `translate(-50%, -50%) translateY(-15px)`;
+        div.addEventListener("transitionend", () => {
+            div.remove();
+            //运行回调函数
+            options.callback && options.callback();
+        }, { once: true });
+    }, duration)
 
 }
