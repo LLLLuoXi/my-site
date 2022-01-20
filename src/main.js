@@ -1,9 +1,11 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-19 22:14:21
+ * @LastEditTime: 2022-01-20 23:21:30
  * @LastEditors: your name
  * @Description: mian
  */
+import "./mock"
+import "./api/test"
 import Vue from 'vue'
 import App from './App.vue'
 import './styles/global.less'
