@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-19 22:17:05
+ * @LastEditTime: 2022-01-21 22:12:21
  * @LastEditors: your name
  * @Description: 消息弹窗
  */
@@ -33,12 +33,15 @@ export default function (options) {
     const typeClassName = styles[`message-${type}`]
     div.className = `${styles.message} ${typeClassName}`
 
-    
+
 
     // 容器的position是否改动过
-    if (getComputedStyle(container).position === "static") {
-        container.style.position = "relative"
+    if (options.container) {
+        if (getComputedStyle(container).position === "static") {
+            container.style.position = "relative"
+        }
     }
+
     //将div加到容器里 
     container.appendChild(div)
     // 浏览器强行渲染
