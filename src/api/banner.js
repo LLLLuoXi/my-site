@@ -1,16 +1,11 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-21 22:23:33
- * @LastEditors: luoxi
+ * @LastEditTime: 2022-01-25 22:03:19
+ * @LastEditors: your name
  * @Description: 
  */
-import request from './request';
+import request from "./request";
 
-export async function getBanners(){
-    return await request.get("/api/banner")
- 
+export async function getBanners() {
+  return await request.get("/api/banner");
 }
-
-getBanners().then(r=>{
-    console.log(r)
-})

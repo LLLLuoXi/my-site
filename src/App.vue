@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-17 21:55:11
+ * @LastEditTime: 2022-01-25 23:01:26
  * @LastEditors: your name
  * @Description: app.vue
 -->
@@ -14,10 +14,8 @@
       </template>
 
       <template #default>
-        <div class="default-aside">
           <!-- vue-router 匹配到的组件会渲染到这里 -->
           <RouterView />
-        </div>
       </template>
     </Layout>
   </div>
@@ -44,8 +42,8 @@ export default {
 .app-contianer {
   .self-fill(fixed);
   .site-aside {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 250px;
   }
 }
 </style>
