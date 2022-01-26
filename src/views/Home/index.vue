@@ -1,21 +1,17 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-25 23:22:57
+ * @LastEditTime: 2022-01-26 20:03:03
  * @LastEditors: your name
  * @Description: 主页
 -->
 <template>
-  <div class="home-container" ref="container">
-    <ul class="carousel-container" :style="{ marginTop }">
+  <div class="home-container" ref="container" @wheel="handleWheel">
+    <ul class="carousel-container" :style="{ marginTop }" @transitionend="handleTransitionEnd">
       <li v-for="item in banners" :key="item.id">
-        <CarouselItem />
+        <CarouselItem :carousel="item"/>
       </li>
     </ul>
-    <div
-      v-show="index >= 1"
-      @click="switchTo(index - 1)"
-      class="icon icon-up"
-    >
+    <div v-show="index >= 1" @click="switchTo(index - 1)" class="icon icon-up">
       <Icon type="arrowUp" />
     </div>
     <div
@@ -48,14 +44,19 @@ export default {
       banners: [],
       index: 0,
       containerHeight: 0,
+      switching: false, //是否正在翻页
     };
   },
   async created() {
     this.banners = await getBanners();
-    console.log("🧐 ~ created ~ this.banners", this.banners)
+    console.log("🧐 ~ created ~ this.banners", this.banners);
   },
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight;
+    window.addEventListener("resize",this.handleResize)
+  },
+  destroy() {
+    window.removeEventListener("resize",this.handleResize)
     
   },
   computed: {
@@ -80,6 +81,30 @@ export default {
     switchTo(i) {
       this.index = i;
     },
+    //滚轮事件
+    handleWheel(e) {
+      if (this.switching) {
+        return;
+      }
+      if (e.deltaY < -5 && this.index > 0) {
+        //往上滚动
+        console.log("e.deltaY", e.deltaY);
+        this.switching = true;
+        this.index--;
+      } else if (e.deltaY > 5 && this.index < this.banners.length - 1) {
+        //往下滚动
+        console.log("e.deltaY", e.deltaY);
+        this.switching = true;
+        this.index++;
+      }
+    },
+    handleTransitionEnd() {
+      this.switching = false;
+      console.log("🧐 ~ handleTransitionEnd ~ this.switching", this.switching)
+    },
+    handleResize(){
+      this.containerHeight = this.$refs.container.clientHeight;
+    }
   },
 };
 </script>
@@ -91,7 +116,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  positions: relative;
+  position: relative;
   ul {
     margin: 0;
     padding: 0;
@@ -100,7 +125,7 @@ export default {
   .carousel-container {
     width: 100%;
     height: 100%;
-    transition:all .5s;
+    transition: all 0.5s;
     li {
       width: 100%;
       height: 100%;

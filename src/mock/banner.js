@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-25 21:51:38
+ * @LastEditTime: 2022-01-26 23:52:12
  * @LastEditors: your name
  * @Description: banner mock 模拟数据
  */
@@ -13,24 +13,26 @@ Mock.mock("/api/banner", "get", {
   data: [
     {
       id: "1",
-      midImg: "http://mdrs.yuanjin.tech/img/20201031141507.jpg",
-      bigImg: "http://mdrs.yuanjin.tech/img/20201031141350.jpg",
-      title: "凛冬将至",
-      description: "人唯有恐惧的时候方能勇敢",
+      midImg: "https://s2.loli.net/2022/01/26/ur2ioWORcCKQVft.png",
+      bigImg: "https://s2.loli.net/2022/01/26/GCIDQdeE4yjo1MX.png",
+      title: "积累",
+      description: `为了将来发展的需要，逐渐聚集起有用的东西，使之慢慢增长，完善。积累可以做动词，名词。 </br>
+
+      - 《汉书·叙传上》：帝王之祚，必有明圣显懿之德，丰功厚利积絫之业，然后精诚通於神明，流泽加於生民。颜师古 注、“絫，古累字。`,
     },
     {
       id: "2",
-      midImg: "http://mdrs.yuanjin.tech/img/20201031205550.jpg",
-      bigImg: "http://mdrs.yuanjin.tech/img/20201031205551.jpg",
-      title: "血火同源",
-      description: "如果我回头，一切都完了",
+      midImg: "https://s2.loli.net/2022/01/26/VBDcgdTsLaKUuFk.png",
+      bigImg: "https://s2.loli.net/2022/01/26/BWcUgh3ks1C9upd.png",
+      title: "心态",
+      description: "笃信好学，自然宽心",
     },
     {
       id: "3",
-      midImg: "http://mdrs.yuanjin.tech/img/20201031204401.jpg",
-      bigImg: "http://mdrs.yuanjin.tech/img/20201031204403.jpg",
-      title: "听我怒吼",
-      description: "兰尼斯特有债必偿",
+      midImg: "https://s2.loli.net/2022/01/26/B82w6FCvrADsugI.png",
+      bigImg: "https://s2.loli.net/2022/01/26/Hfrd9btlgjsKYMh.png",
+      title: "遗憾",
+      description: "- 宋·刘过《唐多令》：欲买桂花同载酒，终不似，少年游",
     },
   ],
 });

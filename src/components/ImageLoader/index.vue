@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-14 22:50:51
+ * @LastEditTime: 2022-01-26 23:30:16
  * @LastEditors: your name
  * @Description: 
 -->
@@ -49,6 +49,7 @@ export default {
       setTimeout(() => {
         this.everythingDone = true;
         this.$emit("load");
+        console.log("🧐 ~ 图片加载完成")
       }, this.duration);
     },
   },

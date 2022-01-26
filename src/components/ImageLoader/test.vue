@@ -1,14 +1,20 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-14 23:14:24
+ * @LastEditTime: 2022-01-26 00:05:47
  * @LastEditors: your name
  * @Description: ImageLoader 测试页
 -->
 <template>
   <div class="test-container">
-    <ImageLoader
+    <!-- <ImageLoader
       src="http://source.unsplash.com/random/400x600"
       placeholder="http://source.unsplash.com/random/100x100"
+      @load="handleLoaded"
+      :duration="3000"
+    /> -->
+    <ImageLoader
+      src="https://s2.loli.net/2022/01/26/hC1PxifWzVmbFRU.jpg"
+      placeholder="https://s2.loli.net/2022/01/26/RvxDAqQoY7tCplL.jpg"
       @load="handleLoaded"
       :duration="3000"
     />
