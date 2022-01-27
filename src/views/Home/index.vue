@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-26 20:03:03
+ * @LastEditTime: 2022-01-27 22:25:17
  * @LastEditors: your name
  * @Description: 主页
 -->
@@ -117,6 +117,14 @@ export default {
   height: 100%;
   overflow: hidden;
   position: relative;
+
+  // test
+  // width:300px;
+  // height:300px;
+  // overflow: visible;
+  // border: 2px solid;
+  // margin: 100px auto;
+
   ul {
     margin: 0;
     padding: 0;
