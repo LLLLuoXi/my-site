@@ -1,11 +1,11 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-27 22:25:17
+ * @LastEditTime: 2022-01-28 23:06:49
  * @LastEditors: your name
  * @Description: 主页
 -->
 <template>
-  <div class="home-container" ref="container" @wheel="handleWheel">
+  <div v-loading="isLoading" class="home-container" ref="container" @wheel="handleWheel">
     <ul class="carousel-container" :style="{ marginTop }" @transitionend="handleTransitionEnd">
       <li v-for="item in banners" :key="item.id">
         <CarouselItem :carousel="item"/>
@@ -45,10 +45,12 @@ export default {
       index: 0,
       containerHeight: 0,
       switching: false, //是否正在翻页
+      isLoading:true,
     };
   },
   async created() {
     this.banners = await getBanners();
+    this.isLoading = false;
     console.log("🧐 ~ created ~ this.banners", this.banners);
   },
   mounted() {

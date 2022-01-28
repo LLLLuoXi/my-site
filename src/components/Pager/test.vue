@@ -1,12 +1,12 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-12 23:35:12
+ * @LastEditTime: 2022-01-28 00:12:12
  * @LastEditors: your name
  * @Description: Pager组件测试
 -->
 <template>
   <div id="app">
-    <Pager :current="current" :total="total" @pageChange="handlePageChange" />
+    <Pager :current="current" :total="total" @pageChange="handlePageChange" @test="test = $event"/>
   </div>
 </template>
 
@@ -21,6 +21,7 @@ export default {
     return {
       current: 1,
       total: 302,
+      test:0
     };
   },
   methods: {

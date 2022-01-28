@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-12 23:34:51
+ * @LastEditTime: 2022-01-28 00:09:39
  * @LastEditors: your name
  * @Description: 分页组件
 -->
@@ -12,11 +12,23 @@
     <a @click="handleClick(current - 1)" :class="{ disabled: current === 1 }"
       >&lt;&lt;</a
     >
-    <a @click="handleClick(n)" v-for="(n, i) in numbers" :key="i" :class="{ active: n === current }">{{
-      n
-    }}</a>
-    <a @click="handleClick(current + 1)" :class="{ disabled: current === pageNumber }">&gt;&gt;</a>
-    <a @click="handleClick(pageNumber)" :class="{ disabled: current === pageNumber }">&gt;&gt;|</a>
+    <a
+      @click="handleClick(n)"
+      v-for="(n, i) in numbers"
+      :key="i"
+      :class="{ active: n === current }"
+      >{{ n }}</a
+    >
+    <a
+      @click="handleClick(current + 1)"
+      :class="{ disabled: current === pageNumber }"
+      >&gt;&gt;</a
+    >
+    <a
+      @click="handleClick(pageNumber)"
+      :class="{ disabled: current === pageNumber }"
+      >&gt;&gt;|</a
+    >
   </div>
 </template>
 
@@ -71,17 +83,18 @@ export default {
   },
   methods: {
     handleClick(newPage) {
-      if(newPage<1){
+      if (newPage < 1) {
         newPage = 1;
       }
-      if(newPage >this.pageNumber){
-        newPage = this.pageNumber
+      if (newPage > this.pageNumber) {
+        newPage = this.pageNumber;
       }
-      if(newPage === this.current){
-        return
+      if (newPage === this.current) {
+        return;
       }
       //抛出一个事件
       this.$emit("pageChange", newPage);
+      this.$emit("test", this.current + 1);
     },
   },
 };
