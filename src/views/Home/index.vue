@@ -1,21 +1,30 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-28 23:06:49
+ * @LastEditTime: 2022-01-29 11:54:51
  * @LastEditors: your name
  * @Description: 主页
 -->
 <template>
-  <div v-loading="isLoading" class="home-container" ref="container" @wheel="handleWheel">
-    <ul class="carousel-container" :style="{ marginTop }" @transitionend="handleTransitionEnd">
-      <li v-for="item in banners" :key="item.id">
-        <CarouselItem :carousel="item"/>
+  <div
+    v-loading="isLoading"
+    class="home-container"
+    ref="container"
+    @wheel="handleWheel"
+  >
+    <ul
+      class="carousel-container"
+      :style="{ marginTop }"
+      @transitionend="handleTransitionEnd"
+    >
+      <li v-for="item in data" :key="item.id">
+        <CarouselItem :carousel="item" />
       </li>
     </ul>
     <div v-show="index >= 1" @click="switchTo(index - 1)" class="icon icon-up">
       <Icon type="arrowUp" />
     </div>
     <div
-      v-show="index < banners.length - 1"
+      v-show="index < data.length - 1"
       @click="switchTo(index + 1)"
       class="icon icon-down"
     >
@@ -24,7 +33,7 @@
     <ul class="indicators">
       <li
         :class="{ active: i === index }"
-        v-for="(item, i) in banners"
+        v-for="(item, i) in data"
         :key="item.id"
         @click="switchTo(i)"
       ></li>
@@ -37,29 +46,25 @@
 import Icon from "@/components/Icon";
 import { getBanners } from "@/api/banner";
 import CarouselItem from "./CarouselItem";
+import fetchData from "@/mixins/fetchData";
 export default {
+  mixins: [fetchData([])],
   components: { CarouselItem, Icon },
   data() {
     return {
-      banners: [],
+      // banners: [],
+      // isLoading:true,
       index: 0,
       containerHeight: 0,
       switching: false, //是否正在翻页
-      isLoading:true,
     };
-  },
-  async created() {
-    this.banners = await getBanners();
-    this.isLoading = false;
-    console.log("🧐 ~ created ~ this.banners", this.banners);
   },
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight;
-    window.addEventListener("resize",this.handleResize)
+    window.addEventListener("resize", this.handleResize);
   },
   destroy() {
-    window.removeEventListener("resize",this.handleResize)
-    
+    window.removeEventListener("resize", this.handleResize);
   },
   computed: {
     marginTop() {
@@ -67,18 +72,11 @@ export default {
     },
   },
   methods: {
-    // clickBtn() {
-    //   console.log("ref", this.$refs.container);
-    //   this.$showMessage({
-    //     content: "click",
-    //     type: "success",
-    //     container: this.$refs.container,
-    //     duration: 2000,
-    //     callback: function () {
-    //       console.log("执行了回调函数");
-    //     },
-    //   });
-    // },
+    //mixins 的方法
+    async fetchData() {
+      return await getBanners();
+    },
+
     //切换轮播图
     switchTo(i) {
       this.index = i;
@@ -93,7 +91,7 @@ export default {
         console.log("e.deltaY", e.deltaY);
         this.switching = true;
         this.index--;
-      } else if (e.deltaY > 5 && this.index < this.banners.length - 1) {
+      } else if (e.deltaY > 5 && this.index < this.data.length - 1) {
         //往下滚动
         console.log("e.deltaY", e.deltaY);
         this.switching = true;
@@ -102,11 +100,11 @@ export default {
     },
     handleTransitionEnd() {
       this.switching = false;
-      console.log("🧐 ~ handleTransitionEnd ~ this.switching", this.switching)
+      console.log("🧐 ~ handleTransitionEnd ~ this.switching", this.switching);
     },
-    handleResize(){
+    handleResize() {
       this.containerHeight = this.$refs.container.clientHeight;
-    }
+    },
   },
 };
 </script>
