@@ -1,11 +1,12 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-21 22:04:10
+ * @LastEditTime: 2022-01-30 02:48:59
  * @LastEditors: your name
  * @Description: 
  */
 import  Mock  from "mockjs"
 import "./banner"
+import "./blog";
 
 
 Mock.setup({

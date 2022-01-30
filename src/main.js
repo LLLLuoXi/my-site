@@ -1,10 +1,11 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-28 22:31:31
+ * @LastEditTime: 2022-01-30 02:49:43
  * @LastEditors: your name
  * @Description: mian
  */
 import "./mock"
+
 // import "./api/test"
 import Vue from 'vue'
 import App from './App.vue'
@@ -20,3 +21,12 @@ new Vue({
   render: h => h(App),
   router
 }).$mount('#app')
+
+
+// 测试
+
+import * as blogApi from "./api/blog"
+
+blogApi.getBlogTypes().then(function(res){
+   console.log(res)
+})
