@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-29 11:54:51
+ * @LastEditTime: 2022-01-30 21:44:52
  * @LastEditors: your name
  * @Description: 主页
 -->
@@ -60,6 +60,7 @@ export default {
     };
   },
   mounted() {
+    
     this.containerHeight = this.$refs.container.clientHeight;
     window.addEventListener("resize", this.handleResize);
   },

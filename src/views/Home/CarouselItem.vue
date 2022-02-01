@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-27 22:27:21
+ * @LastEditTime: 2022-01-30 21:45:10
  * @LastEditors: your name
  * @Description: 首页轮播图组件
 -->
@@ -63,10 +63,11 @@ export default {
     },
   },
   mounted() {
+    console.log("mounted",this)
     this.titleWidth = this.$refs.title.clientWidth;
-    console.log("🧐 ~ mounted ~ this.titleWidth", this.titleWidth);
+    // console.log("🧐 ~ mounted ~ this.titleWidth", this.titleWidth);
     this.despWidth = this.$refs.desp.clientWidth;
-    console.log("🧐 ~ mounted ~ this.despWidth", this.despWidth);
+    // console.log("🧐 ~ mounted ~ this.despWidth", this.despWidth);
 
     // --------------------------------
     this.setSize();

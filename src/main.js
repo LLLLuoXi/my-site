@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-30 02:49:43
+ * @LastEditTime: 2022-02-01 21:39:37
  * @LastEditors: your name
  * @Description: mian
  */
@@ -29,4 +29,8 @@ import * as blogApi from "./api/blog"
 
 blogApi.getBlogTypes().then(function(res){
    console.log(res)
+})
+
+blogApi.getBlogs().then(function(res){
+  console.log(res)
 })
