@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-01 21:34:50
+ * @LastEditTime: 2022-02-04 12:58:09
  * @LastEditors: your name
  * @Description: 
 -->
@@ -11,6 +11,14 @@
       <span @click="handleClick(item)" :class="{ active: item.isSelect }">{{
         item.name
       }}</span>
+      <span
+        v-if="item.aside"
+        @click="handleClick(item)"
+        class="aside"
+        :class="{ active: item.isSelect }"
+      >
+        {{ item.aside }}
+      </span>
       <!-- 显示当前组件 -->
       <RightList :list="item.children" @select="handleClick"/>
     </li>
@@ -52,5 +60,10 @@ export default {
       color: @warn;
     }
   }
+}
+.aside {
+  font-size: 12px;
+  margin-left: 1em;
+  color: @gray;
 }
 </style>

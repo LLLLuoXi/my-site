@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-01 21:39:37
+ * @LastEditTime: 2022-02-04 12:56:01
  * @LastEditors: your name
  * @Description: mian
  */
@@ -27,7 +27,7 @@ new Vue({
 
 import * as blogApi from "./api/blog"
 
-blogApi.getBlogTypes().then(function(res){
+blogApi.getBlogCategories().then(function(res){
    console.log(res)
 })
 

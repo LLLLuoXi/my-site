@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-30 02:24:41
+ * @LastEditTime: 2022-02-04 12:55:40
  * @LastEditors: your name
  * @Description: 
  */
@@ -26,6 +26,6 @@ export async function getBlogs(page = 1, limit = 10, categoryid = -1) {
  * @description: 获取博客分类
  * @return {*} promise
  */
-export async function getBlogTypes() {
+export async function getBlogCategories() {
     return request.get("/api/blogtype")
 }
