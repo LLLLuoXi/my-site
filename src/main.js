@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-04 12:56:01
+ * @LastEditTime: 2022-02-06 23:05:38
  * @LastEditors: your name
  * @Description: mian
  */
@@ -23,14 +23,34 @@ new Vue({
 }).$mount('#app')
 
 
-// 测试
+// 测试 接口
 
 import * as blogApi from "./api/blog"
 
-blogApi.getBlogCategories().then(function(res){
-   console.log(res)
-})
+// blogApi.getBlogCategories().then(function(res){
+//    console.log(res)
+// })
 
-blogApi.getBlogs().then(function(res){
-  console.log(res)
+// blogApi.getBlogs().then(function(res){
+//   console.log(res)
+// })
+
+// blogApi.getBlog('1').then(r=>{
+//   console.log(r);
+// })
+
+
+blogApi.postComment({
+  nickname: "昵称",
+  content: "评论内容，纯文本",
+  blogId: "123",
 })
+  .then((r) => {
+    console.log(r);
+  });
+
+// blogApi.getComments().then(r => {
+//   console.log('getComment',r);
+// })
+
+
