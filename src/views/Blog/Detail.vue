@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-07 23:30:18
+ * @LastEditTime: 2022-02-13 13:59:19
  * @LastEditors: your name
  * @Description: 博客详情
 -->
@@ -8,6 +8,7 @@
   <Layout>
     <div class="main-container" v-loading="isLoading">
       <BlogDetail :blog="data" v-if="data" />
+      <BlogComment v-if="!isLoading"/>
     </div>
     <template #right>
       <div class="right-container" v-loading="isLoading">
@@ -23,10 +24,11 @@ import { getBlog } from "@/api/blog";
 import Layout from "@/components/Layout";
 import BlogTOC from "./components/BlogTOC";
 import BlogDetail from "./components/BlogDetail";
+import BlogComment from "./components/BlogComment";
 
 export default {
   mixins: [fetchData(null)],
-  components: { Layout, BlogDetail, BlogTOC },
+  components: { Layout, BlogDetail, BlogTOC ,BlogComment},
   methods: {
     async fetchData() {
       return await getBlog(this.$route.params.id);

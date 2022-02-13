@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-07 23:10:05
+ * @LastEditTime: 2022-02-13 15:12:53
  * @LastEditors: your name
  * @Description: 
 -->
@@ -10,7 +10,7 @@
     <aside class="aside">
       <span>日期:{{ formatDate(blog.createDate) }}</span>
       <span>浏览:{{ blog.scanNumber }}</span>
-      <a href="">评论:{{ blog.commentNumber }}</a>
+      <a href="#data-form-container">评论:{{ blog.commentNumber }}</a>
       <a href="">{{ blog.category.name }}</a>
     </aside>
     <div class="markdown-body" v-html="blog.htmlContent"></div>
