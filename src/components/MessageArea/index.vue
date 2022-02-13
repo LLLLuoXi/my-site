@@ -1,12 +1,12 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-13 15:20:00
+ * @LastEditTime: 2022-02-13 15:40:17
  * @LastEditors: your name
  * @Description: 
 -->
 <template>
   <div class="message-area-container">
-    <DataForm v-on="$listeners" @submit="$listeners.submit"/>
+    <DataForm  @submit="$listeners.submit"/>
     <!-- or -->
     <!-- <DataForm v-on="$listeners"/> -->
     <h3>
