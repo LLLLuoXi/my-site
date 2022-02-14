@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-06 23:05:38
+ * @LastEditTime: 2022-02-14 22:06:49
  * @LastEditors: your name
  * @Description: mian
  */
@@ -12,6 +12,7 @@ import App from './App.vue'
 import './styles/global.less'
 import router from './router'
 import showMessage from './utils/showMessage'
+import './eventBus'
 Vue.prototype.$showMessage = showMessage
 // 注册全局指令
 import vLoading from "./directives/loading"

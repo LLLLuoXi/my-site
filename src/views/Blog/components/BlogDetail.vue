@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-13 15:12:53
+ * @LastEditTime: 2022-02-14 22:46:35
  * @LastEditors: your name
  * @Description: 
 -->
@@ -11,7 +11,9 @@
       <span>日期:{{ formatDate(blog.createDate) }}</span>
       <span>浏览:{{ blog.scanNumber }}</span>
       <a href="#data-form-container">评论:{{ blog.commentNumber }}</a>
-      <a href="">{{ blog.category.name }}</a>
+      <RouterLink
+        :to="{ name: 'CategoryBlog', params: { categoryId: blog.category.id } }"
+        >{{ blog.category.name }}</RouterLink>
     </aside>
     <div class="markdown-body" v-html="blog.htmlContent"></div>
   </div>
@@ -20,7 +22,7 @@
 <script>
 import { formatDate } from "@/utils";
 import "@/styles/markdown.css";
-import "highlight.js/styles/github.css"
+import "highlight.js/styles/github.css";
 export default {
   props: {
     blog: {
