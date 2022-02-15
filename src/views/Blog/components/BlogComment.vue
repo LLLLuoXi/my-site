@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-13 15:08:16
+ * @LastEditTime: 2022-02-15 17:58:43
  * @LastEditors: your name
  * @Description: 
 -->
@@ -31,9 +31,47 @@ export default {
       limit: 10,
     };
   },
+  created() {
+    window.fetchMore = this.fetchMore;
+    this.$bus.$on("mainScroll", this.handleScroll);
+  },
+  computed: {
+    hasMore() {
+      return this.data.rows.length < this.data.total;
+    },
+  },
   methods: {
+    async handleScroll(dom) {
+      if (this.isLoading) {
+        // 目前正在加载更多
+        return;
+      }
+      // 在这个范围内 也算到达了底部
+      const range = 100;
+      const dec = Math.abs(dom.scrollTop + dom.clientHeight - dom.scrollHeight);
+      if (dec <= range) {
+        console.log("到达了底部");
+        this.fetchMore();
+      }
+      // console.log("dom", dom);
+    },
     async fetchData() {
       return await getComments(this.$route.params.id, this.page, this.limit);
+    },
+    //加载下一页
+    async fetchMore() {
+      if (!this.hasMore) {
+        // 没有更多数据
+        console.log("没有更多啦");
+        return;
+      }
+      this.isLoading = true;
+      this.page++;
+      const resp = await this.fetchData();
+      this.data.total = resp.total;
+      //拼接
+      this.data.rows = this.data.rows.concat(resp.rows);
+      this.isLoading = false;
     },
     async handleSubmit(formData, callback) {
       console.log(formData);
@@ -42,8 +80,8 @@ export default {
         ...formData,
       });
       this.data.rows.unshift(resp);
-      this.data.total++
-      callback('评论成功')  //告诉子组件处理完了 ，你继续
+      this.data.total++;
+      callback("评论成功"); //告诉子组件处理完了 ，你继续
     },
   },
 };

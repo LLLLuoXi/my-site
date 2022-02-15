@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-14 22:18:59
+ * @LastEditTime: 2022-02-15 17:39:22
  * @LastEditors: your name
  * @Description: 
 -->
@@ -58,6 +58,10 @@ export default {
   created() {
     this.setSelectDebounce = debounce(this.setSelect, 300)
     this.$bus.$on("mainScroll", this.setSelectDebounce);
+    // this.$bus.$on("mainScroll", emitData=>{
+    //   console.log('emitData',emitData);
+    //   this.setSelectDebounce()
+    // });
   },
   destroyed(){
     this.$bus.$off("mainScroll", this.setSelectDebounce);
@@ -69,7 +73,7 @@ export default {
     },
     //设置activeAnchor为正确的值
     setSelect() {
-      console.log('输出');
+      // console.log('输出');
       //由于要重新设置，所有要清空状态
       this.activeAnchor = "";
       const range = 200;
@@ -85,10 +89,10 @@ export default {
           this.activeAnchor = dom.id;
           return;
         } else if (top > range) {
-          // 在规定范围下分
+          // 在规定范围下方
           return;
         } else {
-          // 在规定范围上分
+          // 在规定范围上方
           this.activeAnchor = dom.id; // 先假设自己是激活的，然后继续看后面的
         }
       }

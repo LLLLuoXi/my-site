@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-14 23:03:36
+ * @LastEditTime: 2022-02-15 17:06:20
  * @LastEditors: your name
  * @Description: 博客详情
 -->
@@ -42,8 +42,9 @@ export default {
     this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
   },
    destroyed() {
-     console.log(this.$refs.mainContainer);
-     return
+    //  console.log(this.$refs.mainContainer);
+    //  return
+     this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
   },
   updated() {
     const hash = location.hash;

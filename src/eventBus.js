@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-14 22:06:04
+ * @LastEditTime: 2022-02-15 17:48:22
  * @LastEditors: your name
  * @Description: 简易版时间总线
  */
@@ -32,4 +32,10 @@ import Vue from "vue"
 //     }
 // }
 // export default new Vue({})
+
+/**
+ * @description: 主区域滚动条位置变化后触发
+ * @param {*} 滚动的dom元素
+ * @eventName {*} mainScroll
+ */
 Vue.prototype.$bus = new Vue({})
