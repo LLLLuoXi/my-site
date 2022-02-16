@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-15 17:39:22
+ * @LastEditTime: 2022-02-16 19:06:56
  * @LastEditors: your name
  * @Description: 
 -->
@@ -72,7 +72,10 @@ export default {
       location.hash = item.anchor;
     },
     //设置activeAnchor为正确的值
-    setSelect() {
+    setSelect(paramsDom) {
+      if(!paramsDom){
+        return;
+      }
       // console.log('输出');
       //由于要重新设置，所有要清空状态
       this.activeAnchor = "";

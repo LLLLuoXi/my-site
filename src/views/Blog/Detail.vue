@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-15 17:06:20
+ * @LastEditTime: 2022-02-16 19:30:47
  * @LastEditors: your name
  * @Description: 博客详情
 -->
@@ -34,17 +34,28 @@ export default {
       return await getBlog(this.$route.params.id);
     },
     handleScroll() {
-      console.log("滚动条变化");
+      // console.log("滚动条变化");
       this.$bus.$emit("mainScroll", this.$refs.mainContainer);
     },
+    handleSetMainScroll(scrollTop) {
+      this.$refs.mainContainer.scrollTop = scrollTop;
+    },
+  },
+  created() {
+    this.$bus.$on("setMainScroll", this.handleSetMainScroll);
   },
   mounted() {
     this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
   },
-   destroyed() {
+  beforeDestroy() {
+    this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
+  },
+
+  destroyed() {
     //  console.log(this.$refs.mainContainer);
     //  return
-     this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
+    this.$bus.$emit("manScroll", undefined);
+    this.$bus.$off("setMainScroll", this.handleSetMainScroll);
   },
   updated() {
     const hash = location.hash;

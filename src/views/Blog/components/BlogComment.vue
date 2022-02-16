@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-15 17:58:43
+ * @LastEditTime: 2022-02-16 19:05:17
  * @LastEditors: your name
  * @Description: 
 -->
@@ -35,6 +35,9 @@ export default {
     window.fetchMore = this.fetchMore;
     this.$bus.$on("mainScroll", this.handleScroll);
   },
+  destroyed() {
+    this.$bus.$off("mainScroll", this.handleScroll);
+  },
   computed: {
     hasMore() {
       return this.data.rows.length < this.data.total;
@@ -42,7 +45,7 @@ export default {
   },
   methods: {
     async handleScroll(dom) {
-      if (this.isLoading) {
+      if (this.isLoading || !dom) {
         // 目前正在加载更多
         return;
       }

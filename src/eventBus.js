@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-15 17:48:22
+ * @LastEditTime: 2022-02-16 19:21:57
  * @LastEditors: your name
  * @Description: 简易版时间总线
  */
@@ -35,7 +35,12 @@ import Vue from "vue"
 
 /**
  * @description: 主区域滚动条位置变化后触发
- * @param {*} 滚动的dom元素
+ * @param {*} 滚动的dom元素,如果是undefined，则表示dom元素已经不存在
  * @eventName {*} mainScroll
+ * 
+ * 
+ * @eventName {*} setMainScroll
+ * @description: 当需要设置主区域滚动条位置时触发
+ * @param {*} 滚动高度
  */
 Vue.prototype.$bus = new Vue({})

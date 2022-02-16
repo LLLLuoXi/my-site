@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-25 23:01:26
+ * @LastEditTime: 2022-02-15 19:11:20
  * @LastEditors: your name
  * @Description: app.vue
 -->
@@ -18,17 +18,21 @@
           <RouterView />
       </template>
     </Layout>
+    <ToTop/>
+    
   </div>
 </template>
 
 <script>
 import Layout from "./components/Layout";
 import SiteAside from "./components/SiteAside";
+import ToTop from "./components/ToTop";
 export default {
   name: "App", //如果组件没有初始化名字，则会使用这个名字
   components: {
     Layout,
     SiteAside,
+    ToTop
   },
   data() {
     return {};
