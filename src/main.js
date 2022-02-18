@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-14 22:06:49
+ * @LastEditTime: 2022-02-18 22:19:04
  * @LastEditors: your name
  * @Description: mian
  */
@@ -16,7 +16,9 @@ import './eventBus'
 Vue.prototype.$showMessage = showMessage
 // 注册全局指令
 import vLoading from "./directives/loading"
+import vLazy from "./directives/lazy"
 Vue.directive("loading", vLoading)
+Vue.directive("lazy", vLazy)
 
 new Vue({
   render: h => h(App),

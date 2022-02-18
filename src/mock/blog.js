@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-13 14:01:37
+ * @LastEditTime: 2022-02-18 22:36:36
  * @LastEditors: your name
  * @Description: 
  */
@@ -42,7 +42,9 @@ Mock.mock(/^\/api\/blog(\?.+)?$/, "get", function (options) {
                     },
                     "scanNumber|0-3000": 0,
                     "commentNumber|0-300": 30,
-                    "thumb|1": [Mock.Random.image("300x250", "#000", "#fff", "Random Image"), null],
+                    // "thumb|1": [Mock.Random.image("300x250", "#000", "#fff", "Random Image"), null],
+                    // 改成模板自符串 每一次都调用一次函数 模拟真实图片很多 或者很大加载很慢
+                    "thumb|1": ["@image(300x250, @color, #fff, @natural)"],
                     createDate: `@date('T')`,
                 },
             ],

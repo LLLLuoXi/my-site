@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-18 21:50:39
+ * @LastEditTime: 2022-02-18 22:28:31
  * @LastEditors: your name
  * @Description: blog列表组件
 -->
@@ -10,7 +10,8 @@
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
           <RouterLink :to="{name:'BlogDetail',params:{id:item.id}}">
-            <img :src="item.thumb" :alt="item.title" :title="item.title" />
+            <!-- <img :src="item.thumb" :alt="item.title" :title="item.title" /> -->
+            <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
           </RouterLink>
         </div>
         <div class="main">

@@ -1,10 +1,11 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-16 19:21:57
+ * @LastEditTime: 2022-02-18 22:25:39
  * @LastEditors: your name
  * @Description: 简易版时间总线
  */
 import Vue from "vue"
+const app = new Vue({})
 // const listeners = {}
 // export default {
 //     // 监听一个事件
@@ -43,4 +44,5 @@ import Vue from "vue"
  * @description: 当需要设置主区域滚动条位置时触发
  * @param {*} 滚动高度
  */
-Vue.prototype.$bus = new Vue({})
+Vue.prototype.$bus = app
+export default app;
