@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-16 19:35:36
+ * @LastEditTime: 2022-02-18 21:57:25
  * @LastEditors: your name
  * @Description:  回到顶部组件
 -->
@@ -27,7 +27,7 @@ export default {
         this.show = false;
         return;
       }
-      this.show = dom.scrollTop >= 700;
+      this.show = dom.scrollTop >= 500;
       console.log("dom", dom);
     },
     handleClick() {

@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-16 19:30:47
+ * @LastEditTime: 2022-02-18 21:49:19
  * @LastEditors: your name
  * @Description: 博客详情
 -->
@@ -20,6 +20,7 @@
 
 <script>
 import fetchData from "@/mixins/fetchData";
+import mainScroll from "@/mixins/mainScroll";
 import { getBlog } from "@/api/blog";
 import Layout from "@/components/Layout";
 import BlogTOC from "./components/BlogTOC";
@@ -27,35 +28,12 @@ import BlogDetail from "./components/BlogDetail";
 import BlogComment from "./components/BlogComment";
 
 export default {
-  mixins: [fetchData(null)],
+  mixins: [fetchData(null),mainScroll("mainContainer")],
   components: { Layout, BlogDetail, BlogTOC, BlogComment },
   methods: {
     async fetchData() {
       return await getBlog(this.$route.params.id);
     },
-    handleScroll() {
-      // console.log("滚动条变化");
-      this.$bus.$emit("mainScroll", this.$refs.mainContainer);
-    },
-    handleSetMainScroll(scrollTop) {
-      this.$refs.mainContainer.scrollTop = scrollTop;
-    },
-  },
-  created() {
-    this.$bus.$on("setMainScroll", this.handleSetMainScroll);
-  },
-  mounted() {
-    this.$refs.mainContainer.addEventListener("scroll", this.handleScroll);
-  },
-  beforeDestroy() {
-    this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
-  },
-
-  destroyed() {
-    //  console.log(this.$refs.mainContainer);
-    //  return
-    this.$bus.$emit("manScroll", undefined);
-    this.$bus.$off("setMainScroll", this.handleSetMainScroll);
   },
   updated() {
     const hash = location.hash;
@@ -64,7 +42,6 @@ export default {
       location.hash = hash;
     }, 50);
   },
-  // components: { BlogDetail }
 };
 </script>
 

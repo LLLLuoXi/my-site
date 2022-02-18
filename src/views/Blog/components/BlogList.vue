@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-06 23:22:17
+ * @LastEditTime: 2022-02-18 21:50:39
  * @LastEditors: your name
  * @Description: blog列表组件
 -->
@@ -49,10 +49,11 @@
 <script>
 import Pager from "@/components/Pager";
 import fetchData from "@/mixins/fetchData.js";
+import mainScroll from "@/mixins/mainScroll";
 import { getBlogs } from "@/api/blog.js";
 import { formatDate } from "@/utils";
 export default {
-  mixins: [fetchData({})],
+  mixins: [fetchData({}),mainScroll("container")],
   components: {
     Pager,
   },
