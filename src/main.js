@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-18 22:19:04
+ * @LastEditTime: 2022-02-21 22:44:24
  * @LastEditors: your name
  * @Description: mian
  */
@@ -13,6 +13,8 @@ import './styles/global.less'
 import router from './router'
 import showMessage from './utils/showMessage'
 import './eventBus'
+import store from './store'
+store.dispatch('setting/fetchSetting')
 Vue.prototype.$showMessage = showMessage
 // 注册全局指令
 import vLoading from "./directives/loading"
@@ -22,7 +24,8 @@ Vue.directive("lazy", vLazy)
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')
 
 
@@ -43,17 +46,21 @@ import * as blogApi from "./api/blog"
 // })
 
 
-blogApi.postComment({
-  nickname: "昵称",
-  content: "评论内容，纯文本",
-  blogId: "123",
-})
-  .then((r) => {
-    console.log(r);
-  });
-
-// blogApi.getComments().then(r => {
-//   console.log('getComment',r);
+// blogApi.postComment({
+//   nickname: "昵称",
+//   content: "评论内容，纯文本",
+//   blogId: "123",
 // })
+//   .then((r) => {
+//     console.log(r);
+//   });
 
+blogApi.getComments().then(r => {
+  console.log('getComment',r);
+})
 
+// import { getSetting } from './api/setting'
+
+// getSetting().then((setting) => {
+//   console.log('setting',setting);
+// })
