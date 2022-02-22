@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-14 22:15:05
+ * @LastEditTime: 2022-02-22 21:33:10
  * @LastEditors: your name
  * @Description: 
  */
@@ -12,3 +12,4 @@ export { showMessage }
 export { default as getComponentRootDom } from "./getComponentRootDom";
 export { default as formatDate } from "./formatDate";
 export { default as debounce } from "./debounce"
+export { default as titleController } from "./titleController"

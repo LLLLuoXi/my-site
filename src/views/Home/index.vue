@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-30 21:44:52
+ * @LastEditTime: 2022-02-22 22:30:36
  * @LastEditors: your name
  * @Description: 主页
 -->
@@ -52,15 +52,12 @@ export default {
   components: { CarouselItem, Icon },
   data() {
     return {
-      // banners: [],
-      // isLoading:true,
       index: 0,
       containerHeight: 0,
       switching: false, //是否正在翻页
     };
   },
   mounted() {
-    
     this.containerHeight = this.$refs.container.clientHeight;
     window.addEventListener("resize", this.handleResize);
   },
@@ -101,7 +98,7 @@ export default {
     },
     handleTransitionEnd() {
       this.switching = false;
-      console.log("🧐 ~ handleTransitionEnd ~ this.switching", this.switching);
+      // console.log("🧐 ~ handleTransitionEnd ~ this.switching", this.switching);
     },
     handleResize() {
       this.containerHeight = this.$refs.container.clientHeight;

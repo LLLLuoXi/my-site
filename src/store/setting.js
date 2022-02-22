@@ -1,11 +1,12 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-21 23:33:11
+ * @LastEditTime: 2022-02-22 21:42:02
  * @LastEditors: your name
  * @Description: vuex module setting 
  */
 
 import { getSetting } from "@/api/setting"
+import { titleController } from "@/utils"
 export default {
     namespaced: true,
     state: {
@@ -29,6 +30,9 @@ export default {
             ctx.commit('setLoading', false)
             if (resp.favicon) {
                 document.querySelector("link[rel='icon']").href = resp.favicon
+            }
+            if (resp.siteTitle) {
+                titleController.setSiteTitle(resp.siteTitle)
             }
         }
     }

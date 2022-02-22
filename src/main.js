@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-21 22:44:24
+ * @LastEditTime: 2022-02-22 21:44:26
  * @LastEditors: your name
  * @Description: mian
  */
@@ -55,9 +55,9 @@ import * as blogApi from "./api/blog"
 //     console.log(r);
 //   });
 
-blogApi.getComments().then(r => {
-  console.log('getComment',r);
-})
+// blogApi.getComments().then(r => {
+//   console.log('getComment',r);
+// })
 
 // import { getSetting } from './api/setting'
 

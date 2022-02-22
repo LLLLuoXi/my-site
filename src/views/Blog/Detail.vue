@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-18 21:49:19
+ * @LastEditTime: 2022-02-22 22:16:09
  * @LastEditors: your name
  * @Description: 博客详情
 -->
@@ -26,13 +26,19 @@ import Layout from "@/components/Layout";
 import BlogTOC from "./components/BlogTOC";
 import BlogDetail from "./components/BlogDetail";
 import BlogComment from "./components/BlogComment";
+import { titleController } from "@/utils";
 
 export default {
-  mixins: [fetchData(null),mainScroll("mainContainer")],
+  mixins: [fetchData(null), mainScroll("mainContainer")],
   components: { Layout, BlogDetail, BlogTOC, BlogComment },
   methods: {
     async fetchData() {
-      return await getBlog(this.$route.params.id);
+      const resp = await getBlog(this.$route.params.id);
+      console.log('resp',resp);
+      if (resp.title) {
+        titleController.setRouteTitle(resp.title);
+      }
+      return resp;
     },
   },
   updated() {

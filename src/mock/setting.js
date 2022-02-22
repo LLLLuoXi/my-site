@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-21 23:40:43
+ * @LastEditTime: 2022-02-22 22:03:38
  * @LastEditors: your name
  * @Description: 
  */
@@ -10,7 +10,7 @@ Mock.mock("/api/setting", "get", {
   msg: "",
   data: {
     avatar: "https://avatars.githubusercontent.com/u/53041755?v=4",
-    siteTitle: "我的个人空间",
+    siteTitle: "LLLuoxi个人空间",
     github: "https://github.com/LLLLuoXi",
     qq: "2652445066",
     qqQrCode:

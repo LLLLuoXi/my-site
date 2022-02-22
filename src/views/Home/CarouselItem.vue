@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-30 21:45:10
+ * @LastEditTime: 2022-02-22 21:43:28
  * @LastEditors: your name
  * @Description: 首页轮播图组件
 -->
@@ -63,7 +63,7 @@ export default {
     },
   },
   mounted() {
-    console.log("mounted",this)
+    // console.log("mounted",this)
     this.titleWidth = this.$refs.title.clientWidth;
     // console.log("🧐 ~ mounted ~ this.titleWidth", this.titleWidth);
     this.despWidth = this.$refs.desp.clientWidth;
@@ -81,7 +81,7 @@ export default {
   methods: {
     //显示文字
     showWords() {
-      console.log("🧐 ~ showWords ~ showWords");
+      // console.log("🧐 ~ showWords ~ showWords");
       this.$refs.title.style.opacity = 1;
       this.$refs.title.style.width = 0;
       //强制让元素渲染一次
