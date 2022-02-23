@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-22 21:42:02
+ * @LastEditTime: 2022-02-23 21:51:25
  * @LastEditors: your name
  * @Description: vuex module setting 
  */
@@ -23,7 +23,7 @@ export default {
     },
     actions: {
         async fetchSetting(ctx) {
-            console.log('fetchSetting');
+            // console.log('fetchSetting');
             ctx.commit('setLoading', true)
             const resp = await getSetting()
             ctx.commit('setData', resp)

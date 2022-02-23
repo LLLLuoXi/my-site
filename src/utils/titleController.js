@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-22 22:02:41
+ * @LastEditTime: 2022-02-23 21:46:31
  * @LastEditors: your name
  * @Description: 控制网站标题
  */
@@ -21,7 +21,6 @@ function setTitle() {
 export default {
     //  设置路由标题
     setRouteTitle(title) {
-        console.log('title',title)
         routerTitle = title
         setTitle()
     },

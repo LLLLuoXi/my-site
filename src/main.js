@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-22 21:44:26
+ * @LastEditTime: 2022-02-23 21:52:30
  * @LastEditors: your name
  * @Description: mian
  */
@@ -32,6 +32,7 @@ new Vue({
 // 测试 接口
 
 import * as blogApi from "./api/blog"
+import * as aboutApi from "./api/about"
 
 // blogApi.getBlogCategories().then(function(res){
 //    console.log(res)
@@ -58,6 +59,10 @@ import * as blogApi from "./api/blog"
 // blogApi.getComments().then(r => {
 //   console.log('getComment',r);
 // })
+
+aboutApi.getAbout().then(r => {
+  console.log('getAbout',r);
+})
 
 // import { getSetting } from './api/setting'
 
