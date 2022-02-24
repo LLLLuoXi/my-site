@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-23 21:48:09
+ * @LastEditTime: 2022-02-24 22:57:41
  * @LastEditors: your name
  * @Description: 
  */
@@ -9,6 +9,7 @@ import "./banner"
 import "./blog";
 import "./setting";
 import "./about"
+import "./project"
 
 
 Mock.setup({
