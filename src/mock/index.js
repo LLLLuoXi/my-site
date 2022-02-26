@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-24 22:57:41
+ * @LastEditTime: 2022-02-26 22:20:52
  * @LastEditors: your name
  * @Description: 
  */
@@ -10,6 +10,7 @@ import "./blog";
 import "./setting";
 import "./about"
 import "./project"
+import "./message"
 
 
 Mock.setup({
