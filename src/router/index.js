@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-22 22:02:56
+ * @LastEditTime: 2022-02-27 22:01:34
  * @LastEditors: your name
  * @Description: 
  */
@@ -9,7 +9,10 @@ import VueRouter from 'vue-router'
 import routes from "./routes";
 // import store from "../store"
 import { titleController } from "@/utils"
-Vue.use(VueRouter)
+if (!window.VueRouter) {
+  Vue.use(VueRouter)
+}
+
 
 
 const router = new VueRouter({

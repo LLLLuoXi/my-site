@@ -1,23 +1,16 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-22 21:20:56
+ * @LastEditTime: 2022-02-27 22:29:18
  * @LastEditors: your name
  * @Description: 路由配置 route
  */
-import Home from '@/views/Home'
-import About from '@/views/About'
-import Blog from '@/views/Blog'
-import Message from '@/views/Message'
-import Project from '@/views/Project'
-import BlogDetail from '@/views/Blog/Detail'
-
 export default [
     // 路由规则
-    { name: 'Home', path: '/', component: Home, meta: { title: "首页" } },
-    { name: 'About', path: '/about', component: About,meta: { title: "关于我" } },
-    { name: 'Blog', path: '/blog', component: Blog,meta: { title: "博客" } },
-    { name: 'CategoryBlog', path: '/blog/cate/:categoryId', component: Blog ,meta: { title: "文章" }},
-    { name: 'BlogDetail', path: '/blog/:id', component: BlogDetail ,meta: { title: "文章详情" }},
-    { name: 'Message', path: '/message', component: Message,meta: { title: "留言板" } },
-    { name: 'Project', path: '/project', component: Project ,meta: { title: "项目&效果" }},
+    { name: 'Home', path: '/', component: () => import(/* webpackChunkName:"home" */"@/views/Home"), meta: { title: "首页" } },
+    { name: 'About', path: '/about', component: () => import(/* webpackChunkName:"about" */"@/views/About"), meta: { title: "关于我" } },
+    { name: 'Blog', path: '/blog', component: () => import(/* webpackChunkName:"blog" */"@/views/Blog"), meta: { title: "博客" } },
+    { name: 'CategoryBlog', path: '/blog/cate/:categoryId', component: () => import(/* webpackChunkName:"blog" */"@/views/Blog"), meta: { title: "文章" } },
+    { name: 'BlogDetail', path: '/blog/:id', component: () => import(/* webpackChunkName:"blogDetail" */"@/views/Blog/Detail"), meta: { title: "文章详情" } },
+    { name: 'Message', path: '/message', component: () => import(/* webpackChunkName:"message" */"@/views/Message"), meta: { title: "留言板" } },
+    { name: 'Project', path: '/project', component: () => import(/* webpackChunkName:"project" */"@/views/Project"), meta: { title: "项目&效果" } },
 ]
