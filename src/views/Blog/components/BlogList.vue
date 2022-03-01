@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-18 22:28:31
+ * @LastEditTime: 2022-03-01 22:02:43
  * @LastEditors: your name
  * @Description: blog列表组件
 -->
@@ -9,25 +9,28 @@
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
-          <RouterLink :to="{name:'BlogDetail',params:{id:item.id}}">
+          <RouterLink :to="{ name: 'BlogDetail', params: { id: item.id } }">
             <!-- <img :src="item.thumb" :alt="item.title" :title="item.title" /> -->
             <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
           </RouterLink>
         </div>
         <div class="main">
-          <RouterLink :to="{name:'BlogDetail',params:{id:item.id}}">
+          <RouterLink :to="{ name: 'BlogDetail', params: { id: item.id } }">
             <h2>{{ item.title }}</h2>
           </RouterLink>
           <div class="aside">
             <span>日期：{{ formatDate(item.createDate) }}</span>
             <span>浏览：{{ item.scanNumber }}</span>
             <span>评论：{{ item.commentNumber }}</span>
-            <RouterLink :to="{
-              name:'CategoryBlog',
-              params:{
-                categoryId:item.category.id
-              }
-            }">{{ item.category.name }}</RouterLink>
+            <RouterLink
+              :to="{
+                name: 'CategoryBlog',
+                params: {
+                  categoryId: item.category.id,
+                },
+              }"
+              >{{ item.category.name }}</RouterLink
+            >
           </div>
           <div class="desc">
             {{ item.description }}
@@ -35,6 +38,7 @@
         </div>
       </li>
     </ul>
+    <Empty v-if="data.rows.length === 0 && !isLoading" />
     <!-- 分页放到这里 -->
     <Pager
       v-if="data.total"
@@ -53,10 +57,12 @@ import fetchData from "@/mixins/fetchData.js";
 import mainScroll from "@/mixins/mainScroll";
 import { getBlogs } from "@/api/blog.js";
 import { formatDate } from "@/utils";
+import Empty from "@/components/Empty";
 export default {
-  mixins: [fetchData({}),mainScroll("container")],
+  mixins: [fetchData({ total: 0, rows: [] }), mainScroll("container")],
   components: {
     Pager,
+    Empty,
   },
   computed: {
     // 获取路由信息

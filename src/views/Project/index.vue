@@ -1,8 +1,8 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-24 22:55:13
- * @LastEditors: your name
- * @Description: 
+ * @LastEditTime: 2022-03-01 22:10:59
+ * @LastEditors: luoxi
+ * @Description:  项目&&和效果页面
 -->
 <template>
   <div class="project-container" ref="projectContainer" v-loading="loading">
@@ -39,17 +39,20 @@
         </p>
       </div>
     </div>
+    <Empty v-if="data.length === 0 && !loading" />
   </div>
 </template>
 
 <script>
 import mainScroll from "@/mixins/mainScroll.js";
 import { mapState } from "vuex";
+import Empty from "@/components/Empty";
 export default {
+  components: { Empty },
   mixins: [mainScroll("projectContainer")],
   computed: mapState("project", ["loading", "data"]),
   created() {
-    console.log('project');
+    console.log("project");
     this.$store.dispatch("project/fetchProject");
   },
 };

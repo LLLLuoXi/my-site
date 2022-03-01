@@ -1,11 +1,12 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-28 22:18:18
+ * @LastEditTime: 2022-03-01 22:37:56
  * @LastEditors: your name
  * @Description: 路由配置 route
  */
 import "nprogress/nprogress.css"
 import { start, done, configure } from "nprogress"
+import NotFound from "@/views/NotFound"
 
 configure({
     trickleSpeed: 20,
@@ -60,4 +61,9 @@ export default [
         name: 'Project', path: '/project', component: getPageComponent(() => import(/* webpackChunkName:"project" */"@/views/Project")),
         meta: { title: "项目&效果" }
     },
+    {
+        name: 'NotFound',
+        path: '*',
+        component: NotFound
+    }
 ]
