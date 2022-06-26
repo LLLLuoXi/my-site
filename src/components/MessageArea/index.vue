@@ -1,19 +1,19 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-27 11:23:50
+ * @LastEditTime: 2022-06-25 01:05:01
  * @LastEditors: your name
  * @Description: 
 -->
 <template>
   <div class="message-area-container">
-    <DataForm  @submit="$listeners.submit"/>
+    <DataForm @submit="$listeners.submit" />
     <!-- or -->
     <!-- <DataForm v-on="$listeners"/> -->
     <h3>
       {{ title }}
       <span>{{ subTitle }}</span>
     </h3>
-    <DataList :list="list"  />
+    <DataList :list="list" />
     <div class="loading" v-loading="isListLoading"></div>
   </div>
 </template>
@@ -45,8 +45,8 @@ export default {
     DataList,
   },
   mounted() {
-    console.log("this.$listeners",this.$listeners)
-  }
+    // console.log("this.$listeners",this.$listeners)
+  },
 };
 </script>
 

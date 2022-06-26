@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-26 23:30:16
+ * @LastEditTime: 2022-05-21 12:32:23
  * @LastEditors: your name
  * @Description: 
 -->
@@ -46,11 +46,14 @@ export default {
   methods: {
     handleLoad() {
       this.originLoaded = true;
-      setTimeout(() => {
+      // this.everythingDone = true;
+      const timerId = setTimeout(() => {
         this.everythingDone = true;
         this.$emit("load");
-        console.log("🧐 ~ 图片加载完成")
+        console.log("🧐 ~ 图片加载完成");
       }, this.duration);
+
+      console.log(timerId);
     },
   },
 };

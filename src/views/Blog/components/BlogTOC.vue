@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-16 19:06:56
+ * @LastEditTime: 2022-06-25 01:11:11
  * @LastEditors: your name
  * @Description: 
 -->
@@ -56,14 +56,14 @@ export default {
     },
   },
   created() {
-    this.setSelectDebounce = debounce(this.setSelect, 300)
+    this.setSelectDebounce = debounce(this.setSelect, 300);
     this.$bus.$on("mainScroll", this.setSelectDebounce);
     // this.$bus.$on("mainScroll", emitData=>{
     //   console.log('emitData',emitData);
     //   this.setSelectDebounce()
     // });
   },
-  destroyed(){
+  destroyed() {
     this.$bus.$off("mainScroll", this.setSelectDebounce);
   },
   methods: {
@@ -73,7 +73,7 @@ export default {
     },
     //设置activeAnchor为正确的值
     setSelect(paramsDom) {
-      if(!paramsDom){
+      if (!paramsDom) {
         return;
       }
       // console.log('输出');

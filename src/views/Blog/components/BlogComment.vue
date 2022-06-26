@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-16 19:05:17
+ * @LastEditTime: 2022-06-25 00:59:04
  * @LastEditors: your name
  * @Description: 
 -->
@@ -53,7 +53,7 @@ export default {
       const range = 100;
       const dec = Math.abs(dom.scrollTop + dom.clientHeight - dom.scrollHeight);
       if (dec <= range) {
-        console.log("到达了底部");
+        // console.log("到达了底部");
         this.fetchMore();
       }
       // console.log("dom", dom);
@@ -65,7 +65,7 @@ export default {
     async fetchMore() {
       if (!this.hasMore) {
         // 没有更多数据
-        console.log("没有更多啦");
+        // console.log("没有更多啦");
         return;
       }
       this.isLoading = true;
@@ -77,7 +77,7 @@ export default {
       this.isLoading = false;
     },
     async handleSubmit(formData, callback) {
-      console.log(formData);
+      // console.log(formData);
       const resp = await postComment({
         blogId: this.$route.params.id,
         ...formData,

@@ -1,12 +1,12 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-22 22:30:36
+ * @LastEditTime: 2022-06-24 23:48:13
  * @LastEditors: your name
  * @Description: 主页
 -->
 <template>
   <div
-    v-loading="isLoading"
+    v-loading="loading"
     class="home-container"
     ref="container"
     @wheel="handleWheel"
@@ -44,11 +44,12 @@
 <script>
 // import { showMessage } from "@/utils";
 import Icon from "@/components/Icon";
-import { getBanners } from "@/api/banner";
+// import { getBanners } from "@/api/banner";
 import CarouselItem from "./CarouselItem";
-import fetchData from "@/mixins/fetchData";
+// import fetchData from "@/mixins/fetchData";
+import { mapState } from "vuex";
 export default {
-  mixins: [fetchData([])],
+  // mixins: [fetchData([])],
   components: { CarouselItem, Icon },
   data() {
     return {
@@ -56,6 +57,9 @@ export default {
       containerHeight: 0,
       switching: false, //是否正在翻页
     };
+  },
+  created() {
+    this.$store.dispatch("banner/fetchBanner");
   },
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight;
@@ -68,12 +72,20 @@ export default {
     marginTop() {
       return -this.index * this.containerHeight + "px";
     },
+    ...mapState("banner", ["loading", "data"]),
   },
   methods: {
     //mixins 的方法
-    async fetchData() {
-      return await getBanners();
-    },
+    // async fetchData() {
+    //   const result = await getBanners();
+    //   for (const item of result) {
+    //     item.midImg = "http://localhost:3001" + item.midImg;
+    //     item.bigImg = "http://localhost:3001" + item.bigImg;
+    //   }
+    //   // this.data = result;
+    //   console.log("result", result);
+    //   return await result;
+    // },
 
     //切换轮播图
     switchTo(i) {
@@ -86,12 +98,12 @@ export default {
       }
       if (e.deltaY < -5 && this.index > 0) {
         //往上滚动
-        console.log("e.deltaY", e.deltaY);
+        // console.log("e.deltaY", e.deltaY);
         this.switching = true;
         this.index--;
       } else if (e.deltaY > 5 && this.index < this.data.length - 1) {
         //往下滚动
-        console.log("e.deltaY", e.deltaY);
+        // console.log("e.deltaY", e.deltaY);
         this.switching = true;
         this.index++;
       }

@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-21 23:08:03
+ * @LastEditTime: 2022-06-24 23:02:59
  * @LastEditors: your name
  * @Description: SiteAside
 -->
@@ -11,9 +11,7 @@
     </template>
     <Menu />
     <Contect v-if="data" />
-    <p v-if="data" class="footer">
-      {{ data.icp }}
-    </p>
+    <p v-if="data" class="footer">{{ data.icp }}11111</p>
   </div>
 </template>
 
@@ -32,6 +30,9 @@ export default {
   // },
   computed: { ...mapState("setting", ["data"]) },
   methods: {},
+  mounted() {
+    // console.log("data", this.$store);
+  },
 };
 </script>
 
@@ -50,6 +51,7 @@ export default {
   }
   .footer {
     text-align: center;
+    color: #fff;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-23 21:51:25
+ * @LastEditTime: 2022-06-24 23:00:12
  * @LastEditors: your name
  * @Description: vuex module setting 
  */
@@ -26,6 +26,9 @@ export default {
             // console.log('fetchSetting');
             ctx.commit('setLoading', true)
             const resp = await getSetting()
+            resp.avatar = 'http://localhost:3001/' + resp.avatar
+            resp.qqQrCode = 'http://localhost:3001/' + resp.qqQrCode
+            resp.weixinQrCode = 'http://localhost:3001/' + resp.weixinQrCode
             ctx.commit('setData', resp)
             ctx.commit('setLoading', false)
             if (resp.favicon) {

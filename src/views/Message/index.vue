@@ -1,14 +1,14 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-26 22:51:24
- * @LastEditors: luoxi
+ * @LastEditTime: 2022-06-25 00:57:27
+ * @LastEditors: your name
  * @Description: 留言板
 -->
 <template>
   <div class="message-container" ref="messageContainer">
     <MessageArea
       title="留言板"
-      :subTitle="`$(data.total)`"
+      :subTitle="`(${data.total})`"
       :isListLoading="isLoading"
       :list="data.rows"
       @submit="handleSubmit"
@@ -59,7 +59,7 @@ export default {
       const range = 100;
       const dec = Math.abs(dom.scrollTop + dom.clientHeight - dom.scrollHeight);
       if (dec <= range) {
-        console.log("到达了底部");
+        // console.log("到达了底部");
         this.fetchMore();
       }
     },
@@ -67,7 +67,7 @@ export default {
     async fetchMore() {
       if (!this.hasMore) {
         // 没有更多数据
-        console.log("没有更多啦");
+        // console.log("没有更多啦");
         return;
       }
       this.isLoading = true;

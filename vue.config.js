@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-27 21:24:11
+ * @LastEditTime: 2022-06-24 23:14:05
  * @LastEditors: your name
  * @Description: node环境
  
@@ -8,16 +8,16 @@
 
 
 module.exports = {
-    lintOnSave: true,
-    // lintOnSave: false
     devServer: {
         proxy: {
             "/api": {
-                // target: "http://test.my-site.com"   //开发服务器
-                target: "http://test.my-site111.com"   //开发服务器
-
+                // target: "http://test.my-site.com",
+                target: "http://127.0.0.1:3001"
+            },
+            "/static": {
+                target: "http://127.0.0.1:3001"
             }
-        }
+        },
     },
-    configureWebpack: require('./webpack.config')
-}
+    configureWebpack: require("./webpack.config"),
+};

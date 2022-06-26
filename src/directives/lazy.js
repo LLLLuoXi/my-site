@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-18 23:41:46
+ * @LastEditTime: 2022-06-25 01:06:49
  * @LastEditors: your name
  * @Description: 
  */
@@ -19,7 +19,7 @@ function setImage(img) {
     const rect = img.dom.getBoundingClientRect()
     // 最小高度
     const height = rect.height || 150;
-    console.log('rect', rect);
+    // console.log('rect', rect);
     if (rect.top >= -height && rect.top <= clientHeight) {
         console.log(img.dom, '在视口范围内')
         // const tempImg = new Image()
@@ -29,14 +29,14 @@ function setImage(img) {
         // }
         // tempImg.src = img.src
         img.dom.src = img.src;
-        console.log('加载真实图片',img.dom);
+        // console.log('加载真实图片', img.dom);
         imgs = imgs.filter(i => i !== img)
     }
 }
 
 // 调用该函数 ，就可以设置那些合适的图片
 function setImages() {
-    console.log('setImages');
+    // console.log('setImages');
     for (const img of imgs) {
         // 处理该图片
         setImage(img)

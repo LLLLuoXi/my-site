@@ -1,10 +1,10 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-23 21:52:30
+ * @LastEditTime: 2022-06-26 23:25:17
  * @LastEditors: your name
  * @Description: mian
  */
-import "./mock"
+// import "./mock"
 
 // import "./api/test"
 import Vue from 'vue'
@@ -31,7 +31,7 @@ new Vue({
 
 // 测试 接口
 
-import * as blogApi from "./api/blog"
+// import * as blogApi from "./api/blog"
 import * as aboutApi from "./api/about"
 
 // blogApi.getBlogCategories().then(function(res){
@@ -61,7 +61,7 @@ import * as aboutApi from "./api/about"
 // })
 
 aboutApi.getAbout().then(r => {
-  console.log('getAbout',r);
+  console.log('getAbout', r);
 })
 
 // import { getSetting } from './api/setting'

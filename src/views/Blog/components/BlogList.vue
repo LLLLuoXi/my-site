@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-03-01 22:02:43
+ * @LastEditTime: 2022-06-25 00:43:09
  * @LastEditors: your name
  * @Description: blog列表组件
 -->
@@ -80,11 +80,18 @@ export default {
   methods: {
     formatDate,
     async fetchData() {
-      return await getBlogs(
+      var result = await getBlogs(
         this.routeInfo.page,
         this.routeInfo.limit,
         this.routeInfo.categoryId
       );
+      console.log(result);
+      for (var item of result.rows) {
+        item.thumb = "http://localhost:3001" + item.thumb;
+        // item.thumb = "http://47.108.144.102:3001" + item.thumb;
+        // item.thumb = item.thumb;
+      }
+      return result;
     },
     handlePageChange(newPage) {
       const query = {
@@ -172,4 +179,3 @@ li {
   }
 }
 </style>
-
