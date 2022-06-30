@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-06-25 00:59:04
+ * @LastEditTime: 2022-06-30 22:42:17
  * @LastEditors: your name
  * @Description: 
 -->
@@ -92,6 +92,7 @@ export default {
 
 <style scoped lang="less">
 .blog-comment-container {
+  padding: 20px;
   margin: 30px 0;
 }
 </style>

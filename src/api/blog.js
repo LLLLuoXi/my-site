@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-02-06 23:07:34
+ * @LastEditTime: 2022-06-28 16:06:46
  * @LastEditors: your name
  * @Description: 
  */
@@ -15,10 +15,13 @@ import request from "./request";
  * @return {*} promise
  */
 export async function getBlogs(page = 1, limit = 10, categoryid = -1) {
-    return request.get("/api/blog", {
-        page,
-        limit,
-        categoryid
+    console.log('blog api>>', page, limit, categoryid, typeof categoryid)
+    return await request.get("/api/blog", {
+        params: {
+            page,
+            limit,
+            categoryid
+        }
     })
 }
 

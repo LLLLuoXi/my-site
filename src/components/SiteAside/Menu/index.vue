@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-17 22:35:12
+ * @LastEditTime: 2022-06-28 13:23:24
  * @LastEditors: your name
  * @Description: Menu
 -->
@@ -42,12 +42,12 @@ export default {
           icon: "blog",
           exact: false, // 是否精确匹配
         },
-        {
-          name: "About",
-          title: "关于我",
-          icon: "about",
-          exact: true,
-        },
+        // {
+        //   name: "About",
+        //   title: "关于我",
+        //   icon: "about",
+        //   exact: true,
+        // },
         {
           name: "Project",
           title: "项目&效果",

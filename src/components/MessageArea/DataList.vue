@@ -1,3 +1,9 @@
+<!--
+ * @Author: luoxi
+ * @LastEditTime: 2022-06-28 17:06:39
+ * @LastEditors: your name
+ * @Description: 
+-->
 <template>
   <ul class="data-list-container">
     <li v-for="item in list" :key="item.id">
@@ -39,7 +45,8 @@ export default {
 }
 li {
   display: flex;
-  border-bottom: 1px solid lighten(@gray, 20%);
+  // border-bottom: 1px solid lighten(@gray, 20%);
+  border-bottom: 1px dashed @gray;
   padding: 15px 0;
 }
 .avatar-container {

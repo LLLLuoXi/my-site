@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-06-26 23:25:17
+ * @LastEditTime: 2022-06-28 02:09:59
  * @LastEditors: your name
  * @Description: mian
  */
@@ -32,7 +32,7 @@ new Vue({
 // 测试 接口
 
 // import * as blogApi from "./api/blog"
-import * as aboutApi from "./api/about"
+// import * as aboutApi from "./api/about"
 
 // blogApi.getBlogCategories().then(function(res){
 //    console.log(res)
@@ -60,9 +60,9 @@ import * as aboutApi from "./api/about"
 //   console.log('getComment',r);
 // })
 
-aboutApi.getAbout().then(r => {
-  console.log('getAbout', r);
-})
+// aboutApi.getAbout().then(r => {
+//   console.log('getAbout', r);
+// })
 
 // import { getSetting } from './api/setting'
 

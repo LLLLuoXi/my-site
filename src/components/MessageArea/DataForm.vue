@@ -90,7 +90,7 @@ export default {
   margin-bottom: 8px;
 }
 .input-area {
-  width: 50%;
+  width: 15%;
   position: relative;
 }
 .text-area {
@@ -111,20 +111,56 @@ textarea {
   border: 1px dashed @gray;
   outline: none;
   color: @words;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 4px;
   &:focus {
     border-color: @primary;
   }
 }
 input {
-  padding: 0 15px;
-  height: 40px;
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #777;
+  padding: 0.2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #0d0c22;
+  transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:focus,
+  &:hover {
+    outline: none;
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+    background-color: #fff;
+  }
+  &:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  &::placeholder {
+    color: @gray;
+  }
 }
 textarea {
   resize: none;
-  padding: 8px 15px;
+  padding: 1rem 1rem;
   height: 120px;
+  transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:focus {
+    outline: none;
+    padding: 0.2rem 1rem;
+    border: 1px solid #7a9cc6;
+    border-color: #7a9cc6;
+    background-color: #fff;
+  }
+  &:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  &::placeholder {
+    color: @gray;
+  }
 }
 .error {
   margin-top: 6px;

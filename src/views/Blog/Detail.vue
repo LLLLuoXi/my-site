@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-22 22:16:09
+ * @LastEditTime: 2022-06-30 22:35:37
  * @LastEditors: your name
  * @Description: 博客详情
 -->
@@ -34,7 +34,7 @@ export default {
   methods: {
     async fetchData() {
       const resp = await getBlog(this.$route.params.id);
-      console.log('resp',resp);
+      console.log("resp", resp);
       if (resp.title) {
         titleController.setRouteTitle(resp.title);
       }
@@ -58,7 +58,7 @@ export default {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px;
+  // padding: 20px;
   position: relative;
   scroll-behavior: smooth;
 }

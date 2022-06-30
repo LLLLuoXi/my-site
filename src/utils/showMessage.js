@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-01-21 22:12:21
+ * @LastEditTime: 2022-06-28 11:16:10
  * @LastEditors: your name
  * @Description: 消息弹窗
  */
@@ -25,8 +25,8 @@ export default function (options) {
     const iconDom = getComponentRootDom(Icon, {
         type,
     })
-    console.log(iconDom)
-    console.log(styles)
+    // console.log(iconDom)
+    // console.log(styles)
     div.innerHTML = `<span class="${styles.icon}">${iconDom.outerHTML}</span><div>${content}</div>`
 
     //设置样式

@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-01-16 22:55:06
+ * @LastEditTime: 2022-06-28 14:31:05
  * @LastEditors: your name
  * @Description: Layout 组件
 -->
@@ -31,10 +31,12 @@ export default {};
   .right {
     flex: 0 0 auto;
     overflow: hidden;
+    background: #e8e8e8;
   }
   .main {
     flex: 1 1 auto;
     overflow: hidden;
+    background-color: #eee;
   }
 }
 </style>

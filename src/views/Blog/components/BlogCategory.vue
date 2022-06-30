@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-14 22:58:03
+ * @LastEditTime: 2022-06-28 14:13:14
  * @LastEditors: your name
  * @Description: 
 -->
@@ -29,7 +29,7 @@ export default {
     },
     list() {
       const totalArticleCount = this.data.reduce(
-        (a, b) => a + b.articleCount,
+        (a, b) => a + +b.articleCount,
         0
       );
 
@@ -49,6 +49,7 @@ export default {
       return await getBlogCategories();
     },
     handleSelect(item) {
+      console.log("item", item);
       const query = {
         page: 1,
         limit: this.limit,
@@ -59,6 +60,7 @@ export default {
           name: "Blog",
           query,
         });
+        console.log("this.route", this.$route);
       } else {
         this.$router.push({
           name: "CategoryBlog",
@@ -67,6 +69,7 @@ export default {
             categoryId: item.id,
           },
         });
+        console.log("this.route", this.$route);
       }
     },
   },

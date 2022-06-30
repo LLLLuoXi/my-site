@@ -1,7 +1,7 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-03-01 22:10:59
- * @LastEditors: luoxi
+ * @LastEditTime: 2022-06-28 13:44:13
+ * @LastEditors: your name
  * @Description:  项目&&和效果页面
 -->
 <template>
@@ -96,7 +96,27 @@ export default {
   }
   .github {
     font-size: 14px;
-    color: @primary;
+    color: #2f56b0;
+    position: relative;
+    transition: color 0.4s ease-out;
+    &::after {
+      border-radius: 1em;
+      border-top: 0.1em solid #2f56b0;
+      content: "";
+      position: absolute;
+      right: 100%;
+      bottom: -0.1em;
+      left: 0;
+      transition: right 0.4s cubic-bezier(0, 0.5, 0, 1);
+    }
+    &:hover {
+      // color: red;
+      color: #457dfb;
+    }
+    &:hover::after {
+      // border-color: #457dfb;
+      right: 0;
+    }
   }
 }
 </style>

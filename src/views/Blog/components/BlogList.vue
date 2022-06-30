@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-06-25 00:43:09
+ * @LastEditTime: 2022-07-01 00:14:12
  * @LastEditors: your name
  * @Description: blog列表组件
 -->
@@ -9,10 +9,7 @@
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
-          <RouterLink :to="{ name: 'BlogDetail', params: { id: item.id } }">
-            <!-- <img :src="item.thumb" :alt="item.title" :title="item.title" /> -->
-            <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
-          </RouterLink>
+          <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
         </div>
         <div class="main">
           <RouterLink :to="{ name: 'BlogDetail', params: { id: item.id } }">
@@ -35,6 +32,7 @@
           <div class="desc">
             {{ item.description }}
           </div>
+          <button class="more" @click="goBlogDetail(item.id)">read more</button>
         </div>
       </li>
     </ul>
@@ -80,6 +78,7 @@ export default {
   methods: {
     formatDate,
     async fetchData() {
+      console.log(this.routeInfo);
       var result = await getBlogs(
         this.routeInfo.page,
         this.routeInfo.limit,
@@ -117,6 +116,14 @@ export default {
         });
       }
     },
+    goBlogDetail(id) {
+      this.$router.push({
+        name: "BlogDetail",
+        params: {
+          id,
+        },
+      });
+    },
   },
   watch: {
     async $route() {
@@ -149,23 +156,35 @@ export default {
 }
 li {
   display: flex;
-  padding: 15px 0;
-  border-bottom: 1px solid @gray;
+  margin: 15px 0;
+  min-height: 18rem;
+  box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.8rem;
+  background-color: #fff;
   .thumb {
     flex: 0 0 auto;
     margin-right: 15px;
     img {
       display: block;
-      max-width: 200px;
+      max-width: 18rem;
+      height: 100%;
+      object-fit: cover;
       border-radius: 5px;
+      border-top-left-radius: 0.8rem;
+      border-top-right-radius: 0rem;
+      border-bottom-right-radius: 0rem;
+      border-bottom-left-radius: 0.8rem;
     }
   }
   .main {
+    padding: 2rem;
     flex: 1 1 auto;
+    position: relative;
     h2 {
       margin: 0;
     }
   }
+
   .aside {
     font-size: 12px;
     color: @gray;
@@ -173,9 +192,50 @@ li {
       margin-right: 15px;
     }
   }
+
   .desc {
     margin: 15px 0;
     font-size: 14px;
+  }
+
+  .more {
+    margin-top: 10px;
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: absolute;
+    top: 12rem;
+    right: 3rem;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
+    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      border-radius: 15px;
+      background-color: #212121;
+      z-index: -1;
+      -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      transition: all 250ms;
+    }
+    &:hover {
+      color: #e8e8e8;
+      &::before {
+        width: 100%;
+      }
+    }
   }
 }
 </style>

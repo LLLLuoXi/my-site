@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-02-18 21:57:25
+ * @LastEditTime: 2022-06-28 11:50:06
  * @LastEditors: your name
  * @Description:  回到顶部组件
 -->
@@ -28,7 +28,7 @@ export default {
         return;
       }
       this.show = dom.scrollTop >= 500;
-      console.log("dom", dom);
+      // console.log("dom", dom);
     },
     handleClick() {
       // 回到顶部
@@ -47,7 +47,7 @@ export default {
   line-height: 50px;
   position: fixed;
   z-index: 99;
-  right: 100px;
+  right: 60px;
   bottom: 30px;
   width: 50px;
   height: 50px;

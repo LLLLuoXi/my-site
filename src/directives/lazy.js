@@ -1,6 +1,6 @@
 /*
  * @Author: luoxi
- * @LastEditTime: 2022-06-25 01:06:49
+ * @LastEditTime: 2022-06-28 01:44:45
  * @LastEditors: your name
  * @Description: 
  */
@@ -21,7 +21,7 @@ function setImage(img) {
     const height = rect.height || 150;
     // console.log('rect', rect);
     if (rect.top >= -height && rect.top <= clientHeight) {
-        console.log(img.dom, '在视口范围内')
+        // console.log(img.dom, '在视口范围内')
         // const tempImg = new Image()
         // tempImg.onload = () => {
         //     // 当真实图片加载完成之后
