@@ -90,7 +90,7 @@ export default {
   margin-bottom: 8px;
 }
 .input-area {
-  width: 15%;
+  width: 30%;
   position: relative;
 }
 .text-area {
@@ -144,12 +144,12 @@ input {
 }
 textarea {
   resize: none;
-  padding: 1rem 1rem;
+  padding: 1.5rem 1rem;
   height: 120px;
   transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   &:focus {
     outline: none;
-    padding: 0.2rem 1rem;
+    padding: 0.6rem 1rem;
     border: 1px solid #7a9cc6;
     border-color: #7a9cc6;
     background-color: #fff;

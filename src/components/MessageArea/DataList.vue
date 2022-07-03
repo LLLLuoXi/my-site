@@ -1,11 +1,11 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-06-28 17:06:39
+ * @LastEditTime: 2022-07-01 18:51:08
  * @LastEditors: your name
  * @Description: 
 -->
 <template>
-  <ul class="data-list-container">
+  <TransitionGroup tag="ul" name="list" class="data-list-container">
     <li v-for="item in list" :key="item.id">
       <Avatar :url="item.avatar" :size="44" />
       <div class="data">
@@ -14,7 +14,7 @@
         <div class="time">{{ formatDate(item.createDate, true) }}</div>
       </div>
     </li>
-  </ul>
+  </TransitionGroup>
 </template>
 
 <script>
@@ -69,5 +69,15 @@ li {
   top: 5px;
   font-size: 12px;
   color: @gray;
+}
+
+.list-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.list-enter-active,
+.list-leave-active,
+.list-move {
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 </style>

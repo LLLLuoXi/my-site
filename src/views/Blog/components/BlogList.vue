@@ -1,6 +1,6 @@
 <!--
  * @Author: luoxi
- * @LastEditTime: 2022-07-01 00:14:12
+ * @LastEditTime: 2022-07-01 00:26:48
  * @LastEditors: your name
  * @Description: blog列表组件
 -->
@@ -161,6 +161,7 @@ li {
   box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
   border-radius: 0.8rem;
   background-color: #fff;
+  overflow: hidden;
   .thumb {
     flex: 0 0 auto;
     margin-right: 15px;
@@ -169,11 +170,16 @@ li {
       max-width: 18rem;
       height: 100%;
       object-fit: cover;
+      object-position: left;
       border-radius: 5px;
       border-top-left-radius: 0.8rem;
       border-top-right-radius: 0rem;
       border-bottom-right-radius: 0rem;
       border-bottom-left-radius: 0.8rem;
+      transition: transform 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
   .main {
